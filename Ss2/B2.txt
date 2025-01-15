@@ -1,0 +1,58 @@
+a)
+- PRIMARY KEY
+
+Định nghĩa:
+PRIMARY KEY là ràng buộc đảm bảo giá trị trong một cột (hoặc nhóm cột) là duy nhất và không rỗng trong mỗi hàng của bảng. Nó được sử dụng để xác định duy nhất một bản ghi.
+Ví dụ:
+sql
+Sao chép mã
+CREATE TABLE Students (
+    StudentID INT PRIMARY KEY, -- Giá trị StudentID là duy nhất và không rỗng
+    FullName VARCHAR(100),
+    Age INT
+);
+- NOT NULL
+
+Định nghĩa:
+NOT NULL là ràng buộc đảm bảo rằng một cột không được chứa giá trị rỗng (NULL).
+Ví dụ:
+sql
+Sao chép mã
+CREATE TABLE Employees (
+    EmployeeID INT PRIMARY KEY,
+    Name VARCHAR(100) NOT NULL, -- Name không thể để trống
+    Position VARCHAR(50)
+);
+- FOREIGN KEY
+
+Định nghĩa:
+FOREIGN KEY là ràng buộc dùng để liên kết một cột hoặc nhóm cột trong một bảng với PRIMARY KEY của một bảng khác, đảm bảo tính toàn vẹn dữ liệu giữa hai bảng.
+Ví dụ:
+sql
+Sao chép mã
+CREATE TABLE Orders (
+    OrderID INT PRIMARY KEY,
+    CustomerID INT,
+    FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID) -- Liên kết với PRIMARY KEY của bảng Customers
+);
+b) Cần sử dụng ràng buộc trong cơ sở dữ liệu vì:
+- Đảm bảo tính toàn vẹn của dữ liệu:
+Ràng buộc giúp ngăn chặn việc nhập dữ liệu không hợp lệ vào bảng, như trùng lặp giá trị trong PRIMARY KEY hoặc NULL ở cột quan trọng.
+
+- Tăng tính nhất quán:
+FOREIGN KEY giúp đảm bảo rằng dữ liệu liên quan giữa các bảng luôn khớp nhau (ví dụ, không thể có một bản ghi Order trỏ đến một Customer không tồn tại).
+
+- Dễ bảo trì và quản lý dữ liệu:
+Ràng buộc tự động kiểm tra và áp dụng quy tắc dữ liệu, giảm công sức kiểm tra thủ công và tránh lỗi do người dùng nhập sai.
+
+- Cải thiện hiệu suất truy vấn:
+Ràng buộc như PRIMARY KEY hoặc UNIQUE giúp cơ sở dữ liệu tạo ra các chỉ mục, tăng tốc độ truy vấn dữ liệu.
+
+- Hỗ trợ các nghiệp vụ phức tạp:
+Ràng buộc đảm bảo rằng dữ liệu tuân theo các quy tắc nghiệp vụ đặt ra, giúp xây dựng hệ thống quản lý dữ liệu hiệu quả và đáng tin cậy.
+
+
+
+
+
+
