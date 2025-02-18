@@ -1,7 +1,7 @@
 create table transaction_log(
 	log_id int primary key auto_increment,
-    log_message text not null,
-    log 
+   	log_message text not null,
+   	log_time timestamp default(current_time)
 );
 
 DELIMITER //
